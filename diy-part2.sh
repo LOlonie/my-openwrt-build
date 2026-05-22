@@ -22,3 +22,5 @@ echo "CONFIG_SIGNED_PACKAGES=y" >> .config
 echo "CONFIG_SIGNATURE_CHECK=y" >> .config
 echo "CONFIG_PACKAGE_usign=y" >> .config
 echo "CONFIG_PACKAGE_openwrt-keyring=y" >> .config
+sed -i '/CONFIG_PACKAGE_ip-tiny/d' .config
+echo "CONFIG_PACKAGE_ip-full=y" >> .config
