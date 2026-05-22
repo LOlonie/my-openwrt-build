@@ -18,3 +18,7 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+echo "CONFIG_SIGNED_PACKAGES=y" >> .config
+echo "CONFIG_SIGNATURE_CHECK=y" >> .config
+echo "CONFIG_PACKAGE_usign=y" >> .config
+echo "CONFIG_PACKAGE_openwrt-keyring=y" >> .config
