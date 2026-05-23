@@ -16,7 +16,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 1 */6 *'
+    - cron: '0 0 1 * *'
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos
@@ -183,5 +183,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2
+      - name: Keepalive Workflow (Native Git)
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit --allow-empty -m "Keepalive Commit (Automated)"
+          git push
